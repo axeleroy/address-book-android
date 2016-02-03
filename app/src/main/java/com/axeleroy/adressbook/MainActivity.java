@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         List<Entry> entries = fm.getEntries();
 
         ListView entriesListView = (ListView) findViewById(R.id.listViewEntries);
-        arrayAdapter = new ArrayAdapter<Entry>(this, android.R.layout.simple_list_item_1, entries);
+        arrayAdapter = new EntryAdapter(this, entries);
         entriesListView.setAdapter(arrayAdapter);
     }
 
