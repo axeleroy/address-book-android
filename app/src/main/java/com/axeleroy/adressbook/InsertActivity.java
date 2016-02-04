@@ -70,8 +70,7 @@ public class InsertActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_save) {
             setEntry();
-            FileManager fm = new FileManager(this);
-            fm.writeEntry(entry);
+            FileManager.writeEntry(entry, this);
             finish();
         }
 

@@ -18,14 +18,9 @@ import java.util.StringTokenizer;
  * Created by axeleroy on 29/01/2016.
  */
 public class FileManager {
-    final String FILENAME = "adressbook.properites";
-    Context context;
+    final static String FILENAME = "adressbook.properites";
 
-    public FileManager(Context context) {
-        this.context = context;
-    }
-
-    public void writeEntry(Entry entry) {
+    public static void writeEntry(Entry entry, Context context) {
         FileOutputStream output = null;
         Properties prop = new Properties();
         prop.setProperty(entry.getSurname() + "." + entry.getLastname(), entry.getNumber());
@@ -46,7 +41,7 @@ public class FileManager {
         }
     }
 
-    public List<Entry> getEntries() {
+    public static List<Entry> getEntries(Context context) {
         InputStream input = null;
         Properties prop = new Properties();
         List<Entry> entries = new ArrayList<Entry>();

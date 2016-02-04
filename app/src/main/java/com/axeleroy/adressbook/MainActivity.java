@@ -41,8 +41,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void populateView() {
-        FileManager fm = new FileManager(this);
-        List<Entry> entries = fm.getEntries();
+        List<Entry> entries = FileManager.getEntries(this);
 
         ListView entriesListView = (ListView) findViewById(R.id.listViewEntries);
         arrayAdapter = new EntryAdapter(this, entries);
