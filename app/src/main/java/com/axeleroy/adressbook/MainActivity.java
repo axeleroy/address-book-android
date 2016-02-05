@@ -1,27 +1,19 @@
 package com.axeleroy.adressbook;
 
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.view.MenuItemCompat;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
-import java.util.List;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements EntryListFragment.OnEntrySelectedListener {
     private final static String LOG_TAG = MainActivity.class.getCanonicalName();
 
-    ArrayAdapter<Entry> arrayAdapter;
+    private DetailsFragment detailsFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,45 +30,27 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
 
-    private void populateView() {
-        List<Entry> entries = FileManager.getEntries(this);
-
-        ListView entriesListView = (ListView) findViewById(R.id.listViewEntries);
-        arrayAdapter = new EntryAdapter(this, entries);
-        entriesListView.setAdapter(arrayAdapter);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        populateView();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-
-        MenuItem searchItem = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
-
-        if (searchView != null) {
-            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                @Override
-                public boolean onQueryTextSubmit(String query) {
-                    return true;
-                }
-
-                @Override
-                public boolean onQueryTextChange(String newText) {
-                    arrayAdapter.getFilter().filter(newText);
-                    return true;
-                }
-            });
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.add(R.id.container_main, new EntryListFragment());
+        // L'appareil est à l'horizontal
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            detailsFragment = new DetailsFragment();
+            ft.add(R.id.container_details, detailsFragment);
         }
+        ft.commit();
+    }
 
-        return true;
+
+    @Override
+    public void onEntrySelected(Entry entry) {
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            detailsFragment.populate(entry);
+        } else { // L'appareil à la verticale, on lance une nouvelle activité
+            Intent intent = new Intent(this, DetailsActivity.class);
+            intent.putExtra("entry", entry);
+            startActivity(intent);
+        }
     }
 }
