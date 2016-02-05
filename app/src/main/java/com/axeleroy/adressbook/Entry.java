@@ -3,10 +3,6 @@ package com.axeleroy.adressbook;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.StringTokenizer;
-
-import ru.lanwen.verbalregex.VerbalExpression;
-
 public class Entry implements Parcelable {
     private String lastname = "";
     private String surname = "";

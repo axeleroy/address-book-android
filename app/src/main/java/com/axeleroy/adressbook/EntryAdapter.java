@@ -22,10 +22,8 @@ public class EntryAdapter extends ArrayAdapter<Entry> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_entry,parent, false);
 
         TextView nameTextView = (TextView) convertView.findViewById(R.id.textViewName);
-        TextView numberTextView = (TextView) convertView.findViewById(R.id.textViewNumber);
 
         nameTextView.setText(entry.getSurname() + " " + entry.getLastname());
-        numberTextView.setText(entry.getNumber());
 
         return convertView;
     }

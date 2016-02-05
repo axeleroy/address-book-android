@@ -11,10 +11,4 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         tools:text="Leslie Knope"
         android:id="@+id/textViewName" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        tools:text="06123456"
-        android:id="@+id/textViewNumber" />
 </LinearLayout>
