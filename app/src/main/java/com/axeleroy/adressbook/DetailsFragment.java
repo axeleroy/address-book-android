@@ -32,8 +32,10 @@ public class DetailsFragment extends Fragment {
     }
 
     public void populate(Entry entry) {
-        lastNameTv.setText(entry.getLastname());
-        surnameTv.setText(entry.getSurname());
-        numberTv.setText(entry.getNumber());
+        if (entry != null) {
+            lastNameTv.setText(entry.getLastname());
+            surnameTv.setText(entry.getSurname());
+            numberTv.setText(entry.getNumber());
+        }
     }
 }
