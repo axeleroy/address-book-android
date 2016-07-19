@@ -1,4 +1,4 @@
-package com.axeleroy.adressbook;
+package com.axeleroy.adressbook.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,6 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import com.axeleroy.adressbook.R;
+import com.axeleroy.adressbook.models.Entry;
 
 import java.util.List;
 

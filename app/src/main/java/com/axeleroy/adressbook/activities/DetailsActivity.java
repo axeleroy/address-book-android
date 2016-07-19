@@ -1,8 +1,10 @@
-package com.axeleroy.adressbook;
+package com.axeleroy.adressbook.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+
+import com.axeleroy.adressbook.R;
 
 public class DetailsActivity extends AppCompatActivity {
 

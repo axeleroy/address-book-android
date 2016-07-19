@@ -1,12 +1,14 @@
-package com.axeleroy.adressbook;
+package com.axeleroy.adressbook.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.axeleroy.adressbook.models.Entry;
+import com.axeleroy.adressbook.R;
 
 public class DetailsFragment extends Fragment {
     TextView lastNameTv;
