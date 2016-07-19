@@ -1,4 +1,4 @@
-package com.axeleroy.adressbook;
+package com.axeleroy.adressbook.activities;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -9,6 +9,11 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+
+import com.axeleroy.adressbook.fragments.DetailsFragment;
+import com.axeleroy.adressbook.models.Entry;
+import com.axeleroy.adressbook.fragments.EntryListFragment;
+import com.axeleroy.adressbook.R;
 
 public class MainActivity extends AppCompatActivity implements EntryListFragment.OnEntrySelectedListener {
     private final static String LOG_TAG = MainActivity.class.getCanonicalName();

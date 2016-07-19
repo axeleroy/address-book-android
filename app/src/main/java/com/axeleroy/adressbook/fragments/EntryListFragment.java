@@ -1,4 +1,4 @@
-package com.axeleroy.adressbook;
+package com.axeleroy.adressbook.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -14,7 +14,11 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
+
+import com.axeleroy.adressbook.models.Entry;
+import com.axeleroy.adressbook.adapters.EntryAdapter;
+import com.axeleroy.adressbook.files.FileManager;
+import com.axeleroy.adressbook.R;
 
 import java.util.List;
 
